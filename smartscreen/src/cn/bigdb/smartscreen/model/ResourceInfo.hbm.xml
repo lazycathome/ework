@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="cn.bigdb.smartscreen.model">
+	<class name="ResourceInfo" table="SM_RESOURCE_INFO">
+		<id name="id" type="java.lang.String">
+			<column name="ID" length="32" />
+			<generator class="uuid.hex" />
+		</id>
+		<property name="category" type="java.lang.String">
+			<column name="CATEGORY" length="32">
+				<comment>类型</comment>
+			</column>
+		</property>
+		<property name="pic" type="java.lang.String">
+			<column name="PIC" length="32">
+				<comment>图片地址</comment>
+			</column>
+		</property>
+		<property name="size" type="int">
+			<column name="SIZE">
+				<comment>图片大小 单位k</comment>
+			</column>
+		</property>
+		<property name="length" type="int">
+			<column name="LENGTH" >
+				<comment>视频大小 单位k</comment>
+			</column>
+		</property>
+		<property name="mode" type="int">
+			<column name="MODE" >
+				<comment>1 图片 2 视频 3 混合中 4 混合上 5 混合下</comment>
+			</column>
+		</property>		
+		<property name="video" type="java.lang.String">
+			<column name="VIDEO" >
+				<comment>视频地址</comment>
+			</column>
+		</property>		
+		<property name="videoTime" type="java.lang.String">
+			<column name="VIDEOTIME" >
+				<comment>视频播放时长</comment>
+			</column>
+		</property>		
+		<property name="time" type="int">
+			<column name="TIME" >
+				<comment>播放时长 单位S</comment>
+			</column>
+		</property>
+		<property name="lastTime" type="long">
+			<column name="LASTTIME" >
+				<comment>文件最后操作时间</comment>
+			</column>
+		</property>
+		<property name="description" type="java.lang.String">
+			<column name="DESCRIPTION" length="32">
+				<comment>说明描述</comment>
+			</column>
+		</property>
+		<!-- 一个资源只能用于一个内容 -->
+		<one-to-one name="contentResource" class="ContentResource" property-ref="resourceInfo"/>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>login</title>
+<link href="css/public.css" rel="stylesheet" type="text/css" />
+<link href="css/login.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="g_login_bg" ng-app="gLogin">
+	<div class="g_login_box">
+		<div class="g_login_con" ng-controller="userLogin">
+			<img src="images/login-title.jpg" />
+			<div class="g_login_import fix">
+				<img src="images/login-head.jpg" />
+				<div>
+					<label>用户名：<input type="text" ng-model="userName" /></label>
+					<label>密&nbsp;&nbsp;码：<input type="password" ng-model="userPWD" /></label>
+				</div>
+			</div>
+			<a class="g_login_btn" href="javascript:;" ng-click="loginSubmit()">登录</a>
+			<div class="g-login-prompt" ng-show="promptShow">{{loginPrompt}}</div>
+		</div>
+	</div>
+	<script src="js/angular.min.js"></script>
+	<script>
+	
+	
+	
+		var aGLogin = angular.module('gLogin', []);
+		
+		
+		aGLogin.config(function($httpProvider) {
+			$httpProvider.defaults.headers.put['Content-Type'] = 'application/x-www-form-urlencoded';
+			$httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+
+			// Override $http service's default transformRequest
+			$httpProvider.defaults.transformRequest = [function(data) {
+				/**
+				 * The workhorse; converts an object to x-www-form-urlencoded serialization.
+				 * @param {Object} obj
+				 * @return {String}
+				 */
+				var param = function(obj) {
+					var query = '';
+					var name, value, fullSubName, subName, subValue, innerObj, i;
+
+					for (name in obj) {
+						value = obj[name];
+
+						if (value instanceof Array) {
+							for (i = 0; i < value.length; ++i) {
+								subValue = value[i];
+								fullSubName = name + '[' + i + ']';
+								innerObj = {};
+								innerObj[fullSubName] = subValue;
+								query += param(innerObj) + '&';
+							}
+						} else if (value instanceof Object) {
+							for (subName in value) {
+								subValue = value[subName];
+								fullSubName = name + '[' + subName + ']';
+								innerObj = {};
+								innerObj[fullSubName] = subValue;
+								query += param(innerObj) + '&';
+							}
+						} else if (value !== undefined && value !== null) {
+							query += encodeURIComponent(name) + '='
+									+ encodeURIComponent(value) + '&';
+						}
+					}
+
+					return query.length ? query.substr(0, query.length - 1) : query;
+				};
+
+				return angular.isObject(data) && String(data) !== '[object File]'
+						? param(data)
+						: data;
+			}];
+		});
+		aGLogin.controller('userLogin', function($scope, $timeout, $http){
+			$scope.promptShow = false;
+			$scope.loginSubmit = function(){
+				if(!$scope.userName){
+					$scope.loginPrompt = "请输入用户名";
+					$scope.promptShow = true;
+					var timer = $timeout(function(){
+						$scope.promptShow = !$scope.promptShow;
+					}, 2000);
+				}else if(!$scope.userPWD){
+					$scope.loginPrompt = "请输入密码";
+					$scope.promptShow = true;
+					var timer = $timeout(function(){
+						$scope.promptShow = !$scope.promptShow;
+					}, 2000);
+				}else{
+					var config = {
+						'method' : 'POST',
+						'url' : '/smartscreen/user/login',
+						'data' : {// 数据，将被放入请求内发送至服务器
+							'username' : $scope.userName,
+							'password' : $scope.userPWD
+						}
+						/*'params': {//params {key,value} 请求参数，将在URL上被拼接成？key=value
+							'username' : $scope.userName,
+							'password' : $scope.userPWD
+						cache {boolean} 若为true，在http GET请求时采用默认的$http cache，否则使用$cacheFactory的实例
+						timeout {number} 设置超时时间
+						}*/
+					};
+					$http(config).success(function(data,status,headers,config){
+						window.location.href = "manage.html";
+					}).error(function(data,status,headers,config){
+						$scope.loginPrompt = "用户名或密码错误";
+						$scope.promptShow = true;
+						var timer = $timeout(function(){
+							$scope.promptShow = !$scope.promptShow;
+						}, 2000);
+					});
+				}
+				/*if($scope.userName && $scope.userPWD){
+
+				}*/
+			};
+		});
+
+	</script>
+</body>
+</html>

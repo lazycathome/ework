@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="cn.bigdb.smartscreen.model">
+	<class name="PlazaInfo" table="SM_PLAZA_INFO">
+		<id name="id" type="java.lang.String">
+			<column name="ID" length="32" />
+		</id>
+		<property name="name" type="java.lang.String">
+			<column name="NAME" length="32">
+				<comment>广场名称</comment>
+			</column>
+		</property>
+		<property name="description" type="java.lang.String">
+			<column name="DESCRIPTION" length="32">
+				<comment>说明描述</comment>
+			</column>
+		</property>
+		<property name="memo" type="java.lang.String">
+			<column name="MEMO" length="32">
+				<comment>备注</comment>
+			</column>
+		</property>
+		<set name="equips" inverse="true">
+			<key>
+				<column name="PLAZAID" length="32">
+					<comment>一个设在某个广场</comment>
+				</column>
+			</key>
+			<one-to-many class="cn.bigdb.smartscreen.model.EquipInfo" />
+		</set>
+		
+		<set name="plazaAreas" inverse="true">
+			<key>
+				<column name="PLAZAID" length="32">
+					<comment>广场id</comment>
+				</column>
+			</key>
+			<one-to-many class="cn.bigdb.smartscreen.model.PlazaArea" />
+		</set>
+		
+		<property name="capital" type="java.lang.String">
+			<column name="CAPITAL" length="32">
+				<comment>省份</comment>
+			</column>
+		</property>
+		<property name="city" type="java.lang.String">
+			<column name="CITY" length="32">
+				<comment>城市</comment>
+			</column>
+		</property>
+		<property name="address" type="java.lang.String">
+			<column name="ADDRESS" length="32">
+				<comment>地址</comment>
+			</column>
+		</property>
+		<property name="phone" type="java.lang.String">
+			<column name="PHONE" length="32">
+				<comment>联系方式</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

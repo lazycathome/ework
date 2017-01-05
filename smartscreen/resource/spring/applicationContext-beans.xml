@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	
+	<!--  annotation默认的方法映射适配器
+    <bean id="handlerMapping" class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
+ 
+    <bean id="handlerAdapter" class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
+ -->
+	<!-- 用户数据层 -->
+	<bean id="userDao" class="cn.bigdb.smartscreen.dao.impl.UserDaoImpl">
+		<property name="hdao">
+			<ref bean="HDAO"/>
+		</property>
+	</bean>
+
+	<bean id="userManagerTarget"
+		class="cn.bigdb.smartscreen.service.impl.UserManagerImpl">
+		<property name="userDao">
+			<ref bean="userDao" />
+		</property>
+	</bean>
+
+	<!-- 用户业务逻辑层 -->
+	<bean id="userManager" parent="baseTransactionProxy">
+		<property name="target">
+			<ref local="userManagerTarget" />
+		</property>
+	</bean>
+	
+	<!-- 心跳数据层 -->
+	<bean id="heartbeatDao" class="cn.bigdb.smartscreen.dao.impl.HeartbeatDaoImpl">
+		<property name="hdao">
+			<ref bean="HDAO"/>
+		</property>
+	</bean>
+
+	<bean id="heartbeatManagerTarget"
+		class="cn.bigdb.smartscreen.service.impl.HeartbeatManagerImpl">
+		<property name="heartbeatDao">
+			<ref bean="heartbeatDao" />
+		</property>
+	</bean>
+
+	<!-- 心跳业务逻辑层 -->
+	<bean id="heartbeatManager" parent="baseTransactionProxy">
+		<property name="target">
+			<ref local="heartbeatManagerTarget" />
+		</property>
+	</bean>
+	
+	<!-- 内容数据层 -->
+	<bean id="contentDao" class="cn.bigdb.smartscreen.dao.impl.ContentDaoImpl">
+		<property name="hdao">
+			<ref bean="HDAO"/>
+		</property>
+	</bean>
+	
+	<bean id="contentManagerTarget" class="cn.bigdb.smartscreen.service.impl.ContentManagerImpl">
+		<property name="contentDao">
+			<ref bean="contentDao"/>
+		</property>
+	</bean>
+	<!-- 内容业务逻辑层 -->
+	<bean id="contentManager" parent="baseTransactionProxy">
+		<property name="target">
+			<ref local="contentManagerTarget"/>
+		</property>
+	</bean>
+	
+	<!-- 更新文件数据层 -->
+	<bean id="upgradeDao" class="cn.bigdb.smartscreen.dao.impl.UpgradeDaoImpl">
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate"/>
+		</property>
+	</bean>	
+	
+	<bean id="upgradeManagerTarget" class="cn.bigdb.smartscreen.service.impl.UpgradeManagerImpl">
+		<property name="upgradeDao">
+			<ref bean="upgradeDao"/>
+		</property>
+	</bean>
+	<!-- 内容业务逻辑层 -->
+	<bean id="upgradeManager" parent="baseTransactionProxy">
+		<property name="target">
+			<ref local="upgradeManagerTarget"/>
+		</property>
+	</bean>
+	
+	<!-- 设备内容更新数据层 -->
+	<bean id="equipUpdateDao" class="cn.bigdb.smartscreen.dao.impl.EquipUpdateDaoImpl">
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate"/>
+		</property>
+		<property name="hdao">
+			<ref bean="HDAO"/>
+		</property>
+	</bean>	
+	
+	<bean id="equipUpdateManagerTarget" class="cn.bigdb.smartscreen.service.impl.EquipUpdateManagerImpl">
+		<property name="equipUpdateDao">
+			<ref bean="equipUpdateDao"/>
+		</property>
+	</bean>
+	<!-- 设备内容更新业务逻辑层 -->
+	<bean id="equipUpdateManager" parent="baseTransactionProxy">
+		<property name="target">
+			<ref local="equipUpdateManagerTarget"/>
+		</property>
+	</bean>
+	<!-- 区域数据层 -->
+	<bean id="areaDao" class="cn.bigdb.smartscreen.dao.impl.PlazaAreaDaoImpl">
+		<property name="hdao">
+			<ref bean="HDAO"/>
+		</property>
+	</bean>
+	
+	<bean id="areaManagerTarget" class="cn.bigdb.smartscreen.service.impl.AreaManagerImpl">
+		<property name="dao">
+			<ref bean="areaDao"/>
+		</property>
+	</bean>
+	<!-- 内容业务逻辑层 -->
+	<bean id="areaManager" parent="baseTransactionProxy">
+		<property name="target">
+			<ref local="areaManagerTarget"/>
+		</property>
+	</bean>
+		<!-- 设备数据层 -->
+	<bean id="equipInfoDao" class="cn.bigdb.smartscreen.dao.impl.EquipInfoDaoImpl">
+		<property name="hdao">
+			<ref bean="HDAO"/>
+		</property>
+	</bean>
+	
+	<bean id="equipInfoManagerTarget" class="cn.bigdb.smartscreen.service.impl.EquipInfoManagerImpl">
+		<property name="dao">
+			<ref bean="equipInfoDao"/>
+		</property>
+		
+	</bean>
+	<!-- 内容业务逻辑层 -->
+	<bean id="equipInfoManager" parent="baseTransactionProxy">
+		<property name="target">
+			<ref local="equipInfoManagerTarget"/>
+		</property>
+	</bean>
+	
+	<bean id="equipInfoStatusManagerTarget"
+		class="cn.bigdb.smartscreen.service.impl.EquipInfoStatusManagerImpl">
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+
+	<!-- 心跳业务逻辑层 -->
+	<bean id="equipInfoStatusManager" parent="baseTransactionProxy">
+		<property name="target">
+			<ref local="equipInfoStatusManagerTarget" />
+		</property>
+	</bean>
+	
+</beans>

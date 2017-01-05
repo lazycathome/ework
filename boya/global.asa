@@ -1,0 +1,25 @@
+<SCRIPT LANGUAGE=VBScript RUNAT="Server">
+'请不要修改下面的参数，否则程序将无法正常运行
+Sub Application_OnStart()
+
+
+'connStr = "driver={MySQL ODBC 5.1 Driver};uid=newiils;pwd=gaokao@312;port=3306;server=127.0.0.1;database=newiils;"
+'Application("connGeWebsite")="driver={MySQL ODBC 5.1 Driver};uid=newiils;pwd=gaokao@312;port=3306;server=127.0.0.1;database=newiils;"
+'Application("connGeWebOld")="driver={sql server};uid=user_geWebsite;pwd=SWd@1s3%6;server=127.0.0.1;database=geland;"
+'链接access数据库
+Application("connWebsite")="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & Server.MapPath("\db\999edu#$@.mdb") &";"
+
+END SUB
+
+SUB Application_OnEnd
+
+END SUB
+
+SUB Session_OnStart
+	Session.Timeout = 20
+END SUB
+
+SUB Session_OnEnd
+
+END SUB
+</SCRIPT>

@@ -1,0 +1,51 @@
+<div ng-controller="exhibitionScreen">
+	<div class="g_set_back">
+		<a href="javascript:;">返回列表</a>
+	</div>
+	<div class="g_show_set_box">
+		<ul>
+			<li>
+				<div class="g_show_set_name">名称：</div>
+				<label><input type="text" class="g_show_input_o"  ng-model="name"/></label>
+				<div class="g_show_set_name">类别：</div>
+				<select class="g_show_select" ng-model="type">
+					<option selected value="服装">服装</option>
+					<option value="美食">美食</option>
+					<option value="电影">电影</option>
+				</select>
+			</li>
+			<li>
+				<div class="{{st.tempClass}}">
+					<div ng-show="st.show" class="{{st.pictureClass}}"></div>
+				</div>
+			</li>
+			<li>
+				<div class="g_show_set_name">地址：</div>
+				<a href="javascript:;" class="g_fa_btn">
+					浏览
+					<form id="update_file" target="update_hidden_frame" encType="multipart/form-data"   action="/fileupload/add" method="post">
+						<input ng-model="updateF" type="file" onchange="document.getElementById('update_file').submit()" />
+						<iframe name='update_hidden_frame' id="update_hidden_frame" style='display:none'></iframe>
+					</form>
+				</a><span>{{updateF}}</span>
+			</li>
+			<li>
+				<div class="g_show_set_name">时间：</div>
+				<label><input type="text" class="g_show_input_t"  ng-model="time"/></label>
+
+			</li>
+			<li>
+				<div class="g_show_set_name">音乐：</div>
+				<a href="javascript:;" class="g_fa_btn">
+					浏览
+					<input type="file" />
+				</a>
+			</li>
+			<li>
+				<div class="g_show_set_name">标签：</div>
+				<label><input type="text" class="g_show_input_s" ng-model="label" /></label>
+			</li>
+		</ul>
+		<a  ng-click="save();"  class="g_fa_btn">{{handle}}</a>
+	</div>
+</body>

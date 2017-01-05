@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>View Comments</title>
+</head>
+<body>
+<table width="1002" border="1" align="center" cellpadding="5" cellspacing="0">
+	<thead>
+		<tr>
+			<td width="120">name</td>
+		    <td width="210">email</td>
+		    <td width="500">description</td>
+		    <td width="170">createTime</td>
+		</tr>
+	</thead>
+	<tbody id="tbody">
+	
+	</tbody>
+</table>
+<script type="text/javascript" src="/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+
+$.ajax({
+	url : "/api/bloomp/contact",
+	type: "get",
+	dataType : "json",
+	success : function(data){
+		if(data.results.length > 0){
+			var str = "";
+			$.each(data.results, function(index, item){
+				str += '<tr>';
+				str += '<td width="120">'+item.name+'</td>';
+				str += '<td width="210">'+item.email+'</td>';
+				str += '<td width="500">'+item.description+'</td>';
+				str += '<td width="170">'+item.strCreateTime+'</td>';
+				str += '</tr>';
+			});
+			$("#tbody").html(str);
+		}
+	}
+});
+
+</script>
+
+</body>
+</html>

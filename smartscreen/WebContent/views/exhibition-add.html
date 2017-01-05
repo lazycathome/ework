@@ -1,0 +1,55 @@
+<div ng-controller="exhibitionAdd">
+	<div class="g_set_back">
+		<a href="javascript:;">返回列表</a>
+	</div>
+	<div class="g_fa_fun fix">
+		<label class="f_l" ng-click="screenC()">
+			<input type="radio" ng-model="screenS" value="cross" />
+			横屏
+		</label>		
+		<label class="f_l" ng-click="screenC()">
+			<input type="radio" ng-model="screenS" value="vertical" />
+			竖屏
+		</label>
+		<div class="g_fa_fun_area">
+			<span class="g_fa_fun_name">宽*高：</span>
+			<label><input type="text" class="g_fa_input_num" value="10" /></label>
+			<em>*</em>
+			<label><input type="text" class="g_fa_input_num" value="10" /></label>
+		</div>
+	</div>
+	<div class="g_show_box">
+		<ul class="g_show_cross fix" ng-show="crossShow">
+			<li>
+				<div class="g_show_area"></div>
+				<p><label><input type="radio" ng-model="tempCross" value="1" />单屏</label></p>
+			</li>
+			<li>
+				<div class="g_show_area"><div></div></div>
+				<p><label><input type="radio" ng-model="tempCross" value="2" />画中画</label></p>
+			</li>
+		</ul>
+		<ul class="g_show_vertical fix" ng-show="verticalShow">
+			<li>
+				<div class="g_show_area"></div>
+				<p><label><input type="radio" ng-model="verticalCross" value="1" />单福画面（图片、视频）</label></p>
+			</li>
+			<li>
+				<div class="g_show_area"><div class="g_show_area_top"></div></div>
+				<p><label><input type="radio" ng-model="verticalCross" value="3" />组合（视频居上）</label></p>
+			</li>
+			<li>
+				<div class="g_show_area"><div class="g_show_area_middle"></div></div>
+				<p><label><input type="radio" ng-model="verticalCross" value="4" />组合（视频居中）</label></p>
+			</li>
+			<li>
+				<div class="g_show_area"><div class="g_show_area_bottom"></div></div>
+				<p><label><input type="radio" ng-model="verticalCross" value="5" />组合（视频居下）</label></p>
+			</li>
+		</ul>
+		<div class="g_show_fun">
+			<a ng-href="#/exhibition/{{equipId}}/screen/{{screenS}}/{{temp}}/{{handle}}" class="g_fa_btn">下一步</a>
+		</div>
+	</div>
+</div>
+

@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>管理</title>
+<link href="css/public.css" rel="stylesheet" type="text/css" />
+<link href="css/manage.css" rel="stylesheet" type="text/css" />
+<script src="js/angular.min.js"></script>
+</head>
+
+<body ng-app="gManage">
+	<div class="g_ma_head fix">
+		<div class="g_ma_logo"><img src="images/logo.jpg" /></div>
+		<ul class="g_ma_nav"  ng-controller="menu">
+			<li class="{{menu.classN}}" ng-repeat="menu in menus" ng-click="tabSwitch($index)"><a ng-href="#{{menu.url}}">{{menu.name}}</a></li>
+		</ul>
+	</div>
+	<div class="g_ma_message_bar">
+		<span>你好：{{}}</span>
+		<em ng-click="gExit()">退出</em>
+	</div>
+	<div class="g_ma_ng_view" ng-view>
+		
+	</div>
+
+	<script src="js/manage.js"></script>
+</body>
+</html>

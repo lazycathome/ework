@@ -1,0 +1,110 @@
+@charset "utf-8";
+/* CSS Document */
+
+#content {
+	width:942px;
+	padding:4px 40px 4px 18px;
+	margin:auto;
+}
+#content #left {
+	float:left;
+	width:731px;
+}
+#content #left #notice {
+	float:left;
+	width:416px;
+	border:1px #cccccc solid;
+	padding-bottom:4px;
+	height:150px;
+}
+#content #left #notice p {
+	width:408px;
+}
+#content p {
+	padding:4px 4px 0 4px;
+	white-space:nowrap;
+	word-break:keep-all;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	height:15px;
+}
+#content #left #clinic {
+	float:left;
+	margin-left:10px;
+	width:290px;
+	border:1px #cccccc solid;
+}
+#content #left #index_ad {
+	float:left;
+	width:718px;
+	margin:5px 0 5px 0;
+	border:1px #cccccc solid;
+	height:327px;
+}
+#content #right {
+	float:right;
+	width:211px;
+	background:url(../images/index_right_bj.jpg) no-repeat;
+	height:501px;
+}
+#content #right #right_jxln {
+	margin-top:23px;
+	float:right;
+}
+#content #right #right_yjmt {
+	float:left;
+	margin:70px 0 0 10px;
+}
+#content #right #right_zlzx {
+	float:right;
+	margin-top:70px;
+}
+#content #right #right_wljs {
+	float:left;
+	margin:168px 0 0 10px;
+}
+#content #right #right_kck {
+	float:right;
+	margin-top:165px;
+}
+#content #center {
+	float:left;
+	width:942px;
+}
+#content #center div {
+	width:297px;
+	float:left;
+	margin:0 10px 5px 0;
+	border:1px #cccccc solid;
+	padding-bottom:4px;
+	height:135px;
+	overflow:hidden;
+}
+#content #center #teaching {
+}
+#content #center #teaching p {
+	width:289px;
+}
+#content #center #achievement {
+}
+#content #center #achievement p {
+	width:289px;
+}
+#content #center #media {
+}
+#content #center #media p {
+	width:289px;
+}
+#content #center #net {
+}
+#content #center #curriculum {
+}
+#content #center #download {
+}
+#content #center #gray {
+	float:right;
+	width:15px;
+	background:#cccccc;
+	margin:0 0 0 -5px;
+	height:280px;
+}

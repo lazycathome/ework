@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Bloomp Note</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+<table width="1002" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="262" height="65" align="center"><a href="index.html"><img src="img/logo.png" alt="BloompNote" width="208" height="57" border="0" /></a></td>
+    <td width="738" align="right"><table width="496" border="0" cellspacing="8">
+      <tr>
+        <td width="186"><a href="howwork.html">HOW IT WORKS</a></td>
+        <td width="117"><a href="blog.html">BLOG</a></td>
+        <td width="155"><a href="contact.html">CONTACT US</a></td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+</table>
+<table width="1000" border="0" align="center" cellpadding="0" cellspacing="0" background="img/bg_index.jpg">
+  <tr>
+    <td width="514" height="339" align="center">&nbsp;</td>
+    <td width="488"><table width="439" border="0">
+      <tr>
+        <td width="433" class="t1">Task sharing—made easy.</td>
+        </tr>
+      <tr>
+        <td height="130" class="t2"><br />
+          Bloomp is perfect for those busybodies who want to stay organized and connected. From keeping track of grocery lists and errands with family to school project checklists among students, Bloomp will take care of all your needs—plus look fun and stylish while at it.<br /></td>
+        </tr>
+      <tr>
+        <td height="94"><a href="https://itunes.apple.com/cn/app/bloomp/id966973298?mt=8"><img src="img/download_ios.png" width="180" height="49" /></a>  <a href="http://www.bloompnote.com/app/Bloomp.apk"><img src="img/download_android.png" width="185" height="49" /></a></td>
+        </tr>
+    </table></td>
+  </tr>
+</table>
+<table width="1002" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="51" align="center" class="t1">COMING TO THE APP STORE IN FEBRUARY 2015</td>
+  </tr>
+  <tr>
+    <td height="78" align="center">
+      <label for="email"></label>
+      <table width="346" border="0" cellpadding="5" cellspacing="5">
+        <tr>
+          <td colspan="2" align="left" class="t2">We can let you know the moment Bloomp goes live.</td>
+          </tr>
+        <tr>
+          <td width="192"><input name="email" type="text" class="email" id="email" value="EMAIL ADDRESS" /></td>
+          <td width="144" align="center"><img onclick="create();" src="img/btn_submit.png" style="cursor:pointer;" /></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td height="30" align="center">&nbsp;</td>
+  </tr>
+</table>
+<table width="1002" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="36" align="center" bgcolor="#e69138" class="copyright">Copyright © 2015 Bloomp  Inc. All rights reserved. </td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<script type="text/javascript" src="/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+	function create(){
+		var email = $("#email").val().trim();
+
+		if(email == 'EMAIL ADDRESS'){
+			alert("Please fill in the e-mail address!");
+			$("#name").val("");
+			return false;
+		}
+		
+		var emailReg = new RegExp(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/);
+		if (!emailReg.test(email)) {
+			alert("E-mail format is incorrect!");
+			return false;
+		}
+		
+		var data = "name=index&email="+email+"&description=";
+		$.ajax({
+			url : "/api/bloomp/contact",
+			data : data,
+			type: "post",
+			dataType : "json",
+			success : function(data){
+				if(data.code == 0){
+					alert("Message Success");
+					window.location.href = "index.html";
+				}else{
+					alert("Message Failure!");
+				}
+			}
+		});
+		return false;
+	}
+</script>
+</body>
+</html>

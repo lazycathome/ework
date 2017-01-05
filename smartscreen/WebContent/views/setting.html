@@ -1,0 +1,59 @@
+<div ng-controller="settingAdd"> 
+	<div class="g_set_back">
+		<a href="javascript:;">返回列表</a>
+	</div>
+	<div class="g_set_box">
+		<div class="g_set_box_list">
+			<div class="g_set_box_name">机器ID：</div>
+			<label><input type="text" class="g_get_input_o" readonly ng-model="id" /></label>
+			<div class="g_set_box_name">设备类别：</div>
+			<div class="g_set_box_con"><select class="g_get_input_o" ng-model="category"><option value="1">横屏</option><option value="2">竖屏</option></select></div>
+		</div>
+		<div class="g_set_box_list">
+			<div class="g_set_box_name">机器编码：</div>
+			<div class="g_set_box_con"><input type="text" class="g_get_input_o" ng-model="code" /></div>
+			<div class="g_set_box_name">所属区域：</div>
+			<div class="g_set_box_con"><select class="g_get_input_o" ng-model="area" ng-options="area.id as area.name for area in model"><option value="0">--请选择--</option></select></div>
+		</div>
+		<div class="g_set_box_list">
+			<div class="g_set_box_name">机器名称：</div>
+			<div class="g_set_box_con"><input type="text" class="g_get_input_o" ng-model="name" /></div>
+			<div class="g_set_box_name">开机时间：</div>
+			<input type="text" class="g_get_input_t" ng-model="startTime" />
+			<div class="g_set_box_name">关机时间：</div>
+			<input type="text" class="g_get_input_t" ng-model="closeTime" />
+		</div>
+		<div class="g_set_box_list">
+			<div class="g_set_box_name">显示尺寸：</div>
+			<input type="text" class="g_get_input_t" ng-model="width" />
+			<em>*</em>
+			<input type="text" class="g_get_input_t" ng-model="height" />
+			<span>（宽*高）</span>
+		</div>
+		<div class="g_set_box_list fix">
+			<div class="g_set_box_name f_l">说明：</div>
+			<textarea ng-model="description"></textarea>
+		</div>
+		<div class="g_set_box_list">
+			<div class="g_set_box_name">设备照片：</div>
+			<div class="g_get_photo">
+				上传照片
+				<input type="file" />
+			</div>
+		</div>
+		
+		<div class="g_get_photo_box">
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+		<div class="g_set_box_fun">
+			<a href="javascript:;" ng-click="settingAddSubmit()">保存</a>
+		</div>
+	</div>
+</div>
+
+

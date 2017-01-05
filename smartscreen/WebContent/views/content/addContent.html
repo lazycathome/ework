@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>添加展示内容</title>
+
+<link href="../../css/content.css" type="text/css" rel="stylesheet">
+<link href="../../css/bootstrap.min.css" type="text/css" rel="stylesheet">
+<script src="../../js/jquery.min.js" type="text/javascript"></script>
+<script src="../../js/bootstrap.js" type="text/javascript"></script>
+
+</head>
+<body>
+	<div class="u1" style="border:1px solid #ccc;">
+		<p class="text-left text-primary">
+			<span>静态展示主要涉及单页面编辑，操作步骤为：</span><br/>
+		    <span>1、选择展示布局（第一阶段实现）</span><br/>
+		    <span>2、选择背景图片或视频（第一阶段实现）</span><br/>
+		    <span>3、选择区域，增加操作交互（第二阶段实现）</span><br/>
+		    <span>&nbsp;</span>
+		</p>
+	</div>
+	<div class="container">
+		<form action="../../content/add" method="post" class="form" enctype="multipart/form-data">
+			<div class="form-group">
+				<label for="category" class="control-lable">展示内容屏幕类型：</label>
+				<div class="radio">
+				  <label>
+				    <input type="radio" name="category" id="optionsRadios1" value="widthScreen" checked>
+				   宽屏
+				  </label>
+				</div>
+				<div class="radio">
+				  <label>
+				    <input type="radio" name="category" id="optionsRadios2" value="heightScreen">
+				    竖屏
+				  </label>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="type" class="control-lable">展示内容类型：</label>
+				<div class="radio">
+				  <label>
+				    <input type="radio" name="type" id="optionsRadios3" value="single" checked>
+				   单屏
+				  </label>
+				</div>
+				<div class="radio">
+				  <label>
+				    <input type="radio" name="type" id="optionsRadios4" value="inside">
+				    画中画
+				  </label>
+				</div>
+			</div>
+			<div>
+				<label>展示内容标题：</label>
+				<input type="text" name="name" value="111"/><br>
+				<label>作者：</label><input type="text" name="author" value="gl"/><br>
+				<label>背景音乐地址：</label><input type="text" style="width:300px;" name="audioUrl" value="http://localhost:8080/smartscreen/audio/1.mp3" /><br>
+				
+				<label>展示等级：</label><input type="text" name="showlevel" value="1"/><br>
+				<label>内容标签：</label><input type="text" name="lable" value="111"/><br>
+				<label>图片：</label><input type="file" id="imgFile" name="upload" onchange="showImag(this)"/><br>
+				
+				
+			</div>
+			<div>
+				<input type="submit" value="提交"/><br>
+			</div>
+		</form>
+		
+	</div>
+	<script type="text/javascript">
+		function showImag(sender){
+			sender.select();
+			sender.blur();
+			var imgSrc = document.selection.createRange().text;
+			
+		}
+
+
+		
+	</script>
+</body>
+</html>

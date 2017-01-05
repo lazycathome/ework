@@ -1,0 +1,54 @@
+<div ng-controller="exhibitionList">
+	<div class="g_fa_fun fix">
+		<div class="g_fa_fun_area">
+			<span class="g_fa_fun_name">设备：</span>
+			<label>
+				<select ng-model="contentList" ng-options="m.name for m in model" ng-change="getListByEquip()">
+						<option value="">--请选择--</option>
+				</select>
+			</label>
+		</div>
+		<div class="g_fa_fun_area">
+			<span class="g_fa_fun_name">位置：</span>
+			<input type="text" value="{{contentList.area.name}}" readonly/>
+		</div>
+		<div class="g_fa_fun_area">
+			<span class="g_fa_fun_name">轮播数量：</span>
+			<label><input type="text" class="g_fa_input_num" value="{{contentList.playCount}}" readonly /></label>
+		</div>
+		<label class="f_l"><input type="checkbox" ng-model="playType" />随机</label>
+		<div class="g_fa_fun_area">
+			<span class="g_fa_fun_name">开机时间：</span>
+			<label><input type="text" class="g_fa_input_time" value="{{contentList.startTime}}" /></label>
+		</div>
+		<div class="g_fa_fun_area">
+			<span class="g_fa_fun_name">关机时间：</span>
+			<label><input type="text" class="g_fa_input_time" value="{{contentList.closeTime}}" /></label>
+		</div>
+		<a href="javascript:;" class="g_fa_btn">预览</a>
+		<a href="#exhibition/add/{{contentList.id}}/0" class="g_fa_btn">新增</a>
+	</div>
+	<div class="g_fa_tab_box">
+		<table>
+			<thead>
+				<tr>
+					<td width="50">排序</td>
+					<td>展示名称</td>
+					<td width="300">操作</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="exhibition in exhibitions">
+					<td>{{exhibition.showlevel}}</td>
+					<td>{{exhibition.name}}</td>
+					<td>
+						<button ng-click="setRising(exhibition.showlevel)">上升</button> 
+						<button ng-click="setFalling(exhibition.showlevel)">下降</button>   
+						<a ng-href="#exhibition/add/{{exhibition.id}}">编辑</a>  
+						<button type="button" ng-click="setStatus(exhibition.status,exhibition.id)">{{exhibition.status}}暂停</button>  
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="cn.bigdb.smartscreen.model">
+	<class name="EquipContent" table="SM_EQUIP_CONTENT">
+		<id name="id" type="java.lang.String">
+			<column name="ID" length="32" />
+		</id>
+		<property name="description" type="java.lang.String">
+			<column name="DESCRIPTION" length="32">
+				<comment>说明描述</comment>
+			</column>
+		</property>
+		<property name="memo" type="java.lang.String">
+			<column name="MEMO" length="32">
+				<comment>备注</comment>
+			</column>
+		</property>
+		<!-- save-update 可以连表保存 fetch 默认select，设置为join则不会懒加载-->
+		<many-to-one cascade="save-update"  name="equip" class="cn.bigdb.smartscreen.model.EquipInfo"
+			fetch="select" >
+			<column name="EQUIPID" length="32"></column>
+		</many-to-one>
+		<many-to-one cascade="save-update"  name="content" class="cn.bigdb.smartscreen.model.Content"
+			fetch="select" >
+			<column name="CONTENTID" length="32"></column>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

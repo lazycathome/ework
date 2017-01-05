@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="cn.bigdb.smartscreen.model">
+	<class name="UpdateFile" table="SM_UPDATE_FILE">
+		<id name="id" type="java.lang.String">
+			<column name="ID" length="32" />
+		</id>
+		<property name="fileUrl" type="java.lang.String">
+			<column name="FILEURL" length="32">
+				<comment>文件地址</comment>
+			</column>
+		</property>
+		<property name="md5code" type="java.lang.String">
+			<column name="MD5CODE" length="32">
+				<comment>md5校验码</comment>
+			</column>
+		</property>
+		<property name="createTime" type="long">
+			<column name="CREATETIME" precision="20" scale="0">
+				<comment>更新时间</comment>
+			</column>
+		</property>
+		<property name="description" type="java.lang.String">
+			<column name="DESCRIPTION" length="32">
+				<comment>说明描述</comment>
+			</column>
+		</property>
+		<one-to-one name="equipUpdate" class="EquipUpdate"  cascade="all"  property-ref="updateFile"  fetch="select" ></one-to-one>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,42 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>上传图片</title>
+<link rel="stylesheet" href="../css/style.css" type="text/css">
+<script type="text/javascript" src="js/upload.js"></script>
+</head>
+
+<body>
+
+<form action="uploadImg.asp" method="POST" name="uploadImageForm" enctype="multipart/form-data" onSubmit="return checkOfUploadImageForm(this);">
+<table border="1" width="358" cellspacing="0" cellpadding="0" style="border-collapse: collapse" bordercolor="#E6E6E6" id=headerTable>
+<tr><td><p><label>上传图片</label></p></td></tr>
+</table>
+
+<table border="1" width="358" cellpadding="0" style="border-collapse: collapse" bordercolor="#E6E6E6" id=loginTable>
+	<tr>
+		<td width="88" align="right"><label>图片文件：</label></td>
+		<td width="270"><input type="file" name="localFile" size="30" tabindex="1" onChange="javascript:romoteFileName(uploadImageForm);"></td>
+	</tr>
+	<tr>
+		<td width="88" align="right"><label>远程文件：</label></td>
+		<td width="270"><input type="text" name="romoteFile" size="30" tabindex="2"></td>
+	</tr>
+</table>
+
+<table border="0" width="358" cellspacing="0" cellpadding="0" id=buttonTable>
+	<tr>
+		<td width="88"></td>
+		<td width="270" style="padding: 12px 0 0 0;">
+		<input type="submit" value="上传图片" name="ok" tabindex="3">
+		<input type="button" value="关闭" name="close" tabindex="4" onClick="javascript:parent.document.getElementById('uploadFileHere').style.display='none';"></td>
+	</tr>
+</table>
+</form>
+
+<br>
+
+</body>
+
+</html>

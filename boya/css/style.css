@@ -1,0 +1,42 @@
+body {  margin: 0; padding: 0; text-align: center; }
+
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+#loginTable { font-size: 12px; line-height: 150%; }
+#loginTable tr td { height: 24px; padding: 4px; }
+#loginTable tr td label { height: 16px; padding: 2px 0 0 4px; }
+#loginTable tr td input { height: 18px; margin: 0; padding: 0; font-size: 12px; }
+#loginTable tr td p { margin: 0; padding: 0; font-size: 12px; }
+#loginTable tr td p label { padding: 0 0 1px 4px; }
+
+#buttonTable tr td input { margin: 0; padding: 4px 6px 0 6px; font-size: 12px; border: 1 solid #E6E6E6; background-color: #F5F5F5; }
+
+#footerTable { font-size: 12px; color: #606060; }
+#footerTable tr td { line-height: 20px; }
+
+#containA { margin: 0 2px 0 0; padding: 3px; display: inline; border: 1px solid #E6E6E6; }
+#containA a { margin: 0; padding: 8px 5px 6px 5px; height: 24px; text-decoration: none; background-color: #F5F5F5; }
+#containA a:hover { background-color: #A9CFEE; }
+
+#welcomeTable { font-size: 12px; }
+#welcomeTable tr td { line-height: 150%; }
+
+#headerTable { margin: 12px 0 0 0; font-size: 12px; }
+#headerTable tr td { padding: 3px; }
+#headerTable tr td p { height: 24px; padding: 6px 0 0 0; background-color: #F5F5F5; }
+#headerTable tr td label { padding: 0 0 0 8px; }
+
+#containAs { margin: 0 0 0 2px; padding: 3px; border: 1px solid #E6E6E6; float: right; }
+#containAs a { margin: 0; padding: 6px 10px 2px 10px; height: 20px; text-decoration: none; background-color: #F5F5F5; }
+#containAs a:hover { background-color: #A9CFEE; }
+
+#listTable { font-size: 12px; line-height: 150%; color: #606060; }
+#listTable tr td { height: 24px; padding: 4px 0 4px 8px; }
+#listTable tr td p { padding: 2px 0 0 0; text-align: center; background-color: #F5F5F5; }
+#listTable tr td label { height: 16px; padding: 2px 0 0 0; }
+#listTable tr td input { height: 18px; margin: 0; padding: 0; font-size: 12px; }
+
+#acticleTable { font-size: 12px; color: #606060; }
+#acticleTable tr td.caption { padding: 8px; font-size: 24px; font-family: ¿¬Ìå_GB2312; color: black; text-align: center; }
+#acticleTable tr td.content { height: 320px; padding: 12px 8px 0 8px; }

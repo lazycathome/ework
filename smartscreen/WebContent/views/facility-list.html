@@ -1,0 +1,52 @@
+<div ng-controller="facilityList">
+			<div class="g_fa_fun fix">
+				<div class="g_fa_fun_area">
+					<span class="g_fa_fun_name">区域：</span>
+					<label>
+						<select ng-model="contentList" ng-options="m.name for m in model" ng-change="queryList();">
+						<option value="">--请选择--</option>
+						</select>
+					</label>
+				</div>
+				<div class="g_fa_fun_area">
+					<span class="g_fa_fun_name">位置：</span>
+					<em class="g_fa_place z_online">联机</em>
+					<em class="g_fa_place z_offline">脱机</em>
+				</div>
+				<div class="g_fa_fun_area">
+					<span class="g_fa_fun_name">开机时间：</span>
+					<label><input type="text" class="g_fa_input_time" value="9:00" /></label>
+				</div>
+				<div class="g_fa_fun_area">
+					<span class="g_fa_fun_name">关机时间：</span>
+					<label><input type="text" class="g_fa_input_time" value="22:00" /></label>
+				</div>
+				<a href="#setting/add" class="g_fa_btn">新增</a>
+			</div>
+			<div class="g_fa_tab_box">
+				<table>
+					<thead>
+						<tr>
+							<td width="50">排序</td>
+							<td>机器编码</td>
+							<td>机器名称</td>
+							<td>说明</td>
+							<td>任务/待审/预览</td>
+							<td>心跳记录</td>
+							<td>最后列新时间</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="{{facility.location}}" ng-repeat="facility in facilities">
+							<td>{{$index+1}}</td>
+							<td>{{facility.code}}</td>
+							<td>{{facility.name}}</td>
+							<td>{{facility.description}}</td>
+							<td>{{facility.equipContent.size()}}/{{facility.pending}}/预览</td>
+							<td>{{facility.heartbeatTime}}</td>
+							<td>{{facility.updateTime}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>		
+		</div>

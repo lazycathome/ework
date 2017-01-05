@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE jediframework
+		PUBLIC "-//jedisoft.cn//DTD JediFramework 0.40//EN"
+		"http://www.jedisoft.cn/java-web/framework/dtds/jediframework0.40.dtd">
+
+<jediframework>
+
+	<jedi-scan>com.bloomp.api</jedi-scan>
+
+</jediframework>

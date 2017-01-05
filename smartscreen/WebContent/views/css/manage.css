@@ -1,0 +1,397 @@
+@charset "utf-8";
+body{
+	font-size:14px;
+}
+a:hover{
+	text-decoration: none;
+}
+/**
+*20140306
+*管理
+*guochunhui
+*模块以"g_ma(g:gallery,ma:manage)"开头	
+*/
+.g_ma_head{
+	height:72px;
+	background:url(../images/manage-head.jpg) repeat-x;
+}
+.g_ma_logo{
+	float:left;
+}
+.g_ma_nav{
+	float:right;
+	margin:36px 6px 0 0;
+}
+.g_ma_nav li{
+	float:left;
+	margin-left:4px;
+	height:30px;
+	width:102px;
+	line-height:30px;
+	color:#fff;
+	text-align: center;
+	border:1px solid #00486d;
+	cursor:pointer;
+	border-radius:5px 5px 0 0;
+	background-image: -moz-linear-gradient(top, #3ba5d9, #1e5e81); /* Firefox */
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #3ba5d9), color-stop(1, #1e5e81)); /* Saf4+, Chrome */
+}
+.g_ma_nav li a{
+	display:block;
+	color:#fff;
+}
+.g_ma_nav li.z-on a{
+	color:#5c6c83;
+}
+.g_ma_nav li.z-on{
+	color:#5c6c83;
+	background-image: -moz-linear-gradient(top, #f9ffff, #d2e9f7); /* Firefox */
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f9ffff), color-stop(1, #d2e9f7)); /* Saf4+, Chrome */
+}
+.g_ma_message_bar{
+	height:28px;
+	line-height:28px;
+	border-bottom:1px solid #e4e4e4;
+	background-image: -moz-linear-gradient(top, #f8fefc, #e7e7e7); /* Firefox */
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f8fefc), color-stop(1, #e7e7e7)); /* Saf4+, Chrome */
+}
+.g_ma_ng_view{overflow:hidden;}
+/**
+*20140315
+*设备管理
+*guochunhui
+*模块以"g_fa(g:gallery,fa:facility)"开头	
+*/
+.g_fa_fun{
+	margin:20px;
+	padding:20px;
+	border:1px solid #ccc;
+	background:#eee;
+	color:#888;
+	font-size:14px;
+}
+.g_fa_btn{
+	display:inline-block;
+	padding:0 20px;
+	line-height:20px;
+	color:#999;
+	background:#ccc;
+	cursor:pointer;
+}
+
+.g_fa_fun_area{
+	float:left;
+	margin-right:20px;
+}
+.g_fa_fun_area input{
+	padding:0 10px;
+	margin:0;
+	height:20px;
+	line-height:20px;
+}
+.g_fa_input_time{
+	width:60px;
+}
+.g_fa_input_num{
+	width:20px;
+}
+.g_fa_fun_area select{
+	padding:0;
+	margin:0;
+	height:20px;
+	line-height:20px;
+	width:200px;
+}
+.g_fa_fun_name{
+	display:inline-block;
+	width:80px;
+	text-align:right;
+	line-height:20px;
+}
+.g_fa_place{
+	display:inline-block;
+	margin-right:10px;
+	width:40px;
+	height:20px;
+	border:1px solid #eee;
+	line-height:20px;
+	text-align:center;
+}
+.g_fa_tab_box{
+	margin:20px;
+}
+.g_fa_tab_box table{
+	width:100%;
+	border-collapse:collapse;
+}
+.g_fa_tab_box td{
+	text-align:center;
+	line-height:30px;
+	border:1px solid #ccc;
+}
+.z_online{/*联机样式*/
+	background:#00ff00;
+}
+.z_offline{/*脱机样式*/
+	background:#ffcc66;
+}
+/**
+*20140315
+*设置页面
+*guochunhui
+*模块以"g_set(g:gallery,set:setting)"开头	
+*/
+.g_set_back{
+	padding-left:20px;
+	line-height:30px;
+}
+.g_set_back a{
+	color:#888;
+}
+.g_set_box{
+	margin:20px auto;
+	width:1080px;
+	color:#888;
+}
+.g_set_box_list{
+	margin-bottom:20px;
+}
+.g_set_box_name{
+	display:inline-block;
+	width:80px;
+	line-height:24px;
+	text-align:right;
+}
+.g_set_box_con{
+	display:inline-block;
+	width:240px;
+}
+.g_set_box input,.g_set_box select{
+	padding:0;
+	margin:0;
+	height:20px;
+	color:#888;
+	line-height:20px;
+	font-size:14px;
+}
+.g_set_box_list em{
+	display:inline-block;
+	text-align:center;
+	width:20px;
+}
+.g_set_box_list textarea{
+	padding:0 10px;
+	margin-left:6px;
+	width:600px;
+	height:100px;
+	line-height:20px;
+	font-size:14px;
+}
+.g_get_photo{
+	display:inline-block;
+	position:relative;
+	width:120px;
+	height:20px;
+	text-align:center;
+	line-height:20px;
+	background:#ccc;
+	cursor:pointer;
+	overflow:hidden;
+}
+.g_get_photo input{
+	position:absolute;
+	top:0;
+	right:0;
+	font-size:700px;
+	background:rgba(0, 0, 0, 0);
+}
+.g_get_photo_box{
+	width:706px;
+	height:142px;
+	border:1px solid #eee;
+	overflow:hidden;
+}
+.g_get_photo_box ul{
+	margin-top:10px;
+	height:12px;
+}
+.g_get_photo_box li{
+	float:left;
+	margin-left:10px;	
+	width:140px;
+	height:120px;
+	border:1px solid #eee;
+}
+.g_get_photo_box img{
+	max-height: 120px;
+	max-width: 140px;
+	line-height:120px;
+}
+.g_set_box_fun{
+	padding:20px;
+}
+.g_set_box_fun a{
+	display:inline-block;
+	margin-left:320px; 
+	width:80px;
+	height:20px;
+	text-align:center;
+	color:#888;
+	background:#ccc;
+}
+.g_get_input_o{
+	width:220px;
+}
+.g_get_input_t{
+	width:60px;
+}
+/**
+*20140315
+*显示管理
+*guochunhui
+*模块以"g_show(g:gallery,show:show)"开头	
+*/
+.g_show_box{
+	margin:10px auto;
+	width:1080px;
+}
+.g_show_cross li{
+	float:left;
+	width:50%;
+	overflow:hidden;
+}
+.g_show_cross li .g_show_area{
+	margin:10px auto;
+	width:384px;
+	height:216px;
+	background:#fff;
+	border:1px solid #ccc;
+	overflow:hidden;
+}
+.g_show_cross li .g_show_area div{
+	margin:20px auto;
+	width:288px;
+	height:162px;
+	background:#ff9900;
+}
+.g_show_cross li p,.g_show_vertical li p{
+	text-align:center;
+	color:#888;
+}
+.g_show_vertical,.g_show_cross{
+	padding-top:50px;
+}
+.g_show_vertical li{
+	float:left;
+	width:25%;
+	overflow:hidden;
+}
+.g_show_vertical li .g_show_area{
+	position:relative;
+	margin:10px auto;
+	width:216px;
+	height:384px;
+	background:#fff;
+	border:1px solid #ccc;
+	overflow:hidden;
+}
+.g_show_vertical li .g_show_area div{
+	position:absolute;
+	width:100%;
+	height:120px;
+	background:#ff9900;
+}
+.g_show_vertical li .g_show_area .g_show_area_top{
+	left:0;
+	top:0;
+}
+.g_show_vertical li .g_show_area .g_show_area_middle{
+	left:0;
+	top:50%;
+	margin-top:-60px;
+}
+.g_show_vertical li .g_show_area .g_show_area_bottom{
+	left:0;
+	bottom:0;
+}
+.g_show_fun{
+	padding:10px 0;
+	text-align:center;
+}
+.g_show_set_box{
+	margin:20px auto;
+	width:1080px;
+}
+.g_show_set_box li{
+	margin-bottom:20px;
+}
+.g_show_set_box li .g_fa_btn{
+	position:absolute;
+	margin-left:6px;
+	overflow:hidden;
+}
+.g_show_set_box li .g_fa_btn input{
+	position:absolute;
+	top:0;
+	right:0;
+	font-size:700;
+	background:rgba(0, 0, 0, 0);
+}
+.g_show_set_name{
+	display:inline-block;
+	width:60px;
+}
+.g_show_set_box label{
+	margin-right:5px;
+}
+.g_show_select{
+	width:80px;
+}
+.g_show_set_box .g_show_input_o{
+	width:120px;
+}
+.g_show_set_box .g_show_input_t{
+	width:60px;
+}
+
+.g_show_set_box .g_show_input_s{
+	width:282px;
+}
+
+.g_show_set_box .g_show_area_cross{
+	width:356px;
+	height:200px;
+	border:1px solid #ccc;
+	overflow:hidden;
+}
+.g_show_set_box .g_show_area_vertical{
+	position:relative;
+	width:200px;
+	height:350px;
+	border:1px solid #ccc;
+	overflow:hidden;
+}
+.g_show_set_box .g_show_area_vertical div{
+	position:absolute;
+	left:0; 
+	width:200px !important;
+	height:110px !important;
+	background:#ff9900;
+}
+.g_show_set_box .g_show_area_vertical div.g_show_area_vertical_t{
+	top:0;
+}
+.g_show_set_box .g_show_area_vertical div.g_show_area_vertical_m{
+	top:50%;
+	margin-top:-55px;
+}
+.g_show_set_box .g_show_area_vertical div.g_show_area_vertical_b{
+	bottom:50%;
+}
+.g_show_set_box .g_show_area_cross div{
+	margin:20px auto;
+	width:178px;
+	height:100px;
+	background:#ff9900;
+}
+
